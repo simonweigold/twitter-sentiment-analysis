@@ -3,8 +3,8 @@ library(tidyverse)
 library(openxlsx)
 library(here)
 
-EMT_roBERTa <- import(here::here("EMT_VADER_roBERTa.csv"))
-EMT_VADER <- import(here::here("EMT_VADER.csv"))
+EMT_roBERTa <- import(here::here("data", "EMT_VADER_roBERTa.csv"))
+EMT_VADER <- import(here::here("data", "EMT_VADER.csv"))
 
 #categorise roBERTa values
 EMT_roBERTa$roBERTa_category <- c("Negative", "Neutral", "Positive")[apply(EMT_roBERTa[, c("Negative", "Neutral", "Positive")], 1, which.max)]
