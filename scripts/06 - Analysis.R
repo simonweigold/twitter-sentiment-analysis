@@ -3,6 +3,8 @@ library(tidyverse)
 library(openxlsx)
 library(here)
 
+Sys.setlocale("LC_ALL", "English")
+
 EMT_roBERTa <- import(here::here("data", "EMT_VADER_roBERTa.csv"))
 EMT_VADER <- import(here::here("data", "EMT_VADER.csv"))
 
@@ -59,7 +61,7 @@ a <- EMT_VADER %>%
   )
 ggsave(a,
        filename = "volume-per-day.png",
-       path = here::here("Sentiment Analysis", "visualisations"),
+       path = here::here("outputs"),
        device = "png",
        width = 6, height = 4, units = "in",
        dpi = 600
@@ -105,7 +107,7 @@ b <- df_means_VADER %>%
   )
 ggsave(b,
        filename = "VADER-SA-over-time.png",
-       path = here::here("Sentiment Analysis", "visualisations"),
+       path = here::here("outputs"),
        device = "png",
        width = 6, height = 4, units = "in",
        dpi = 600
@@ -145,7 +147,7 @@ c <- df_means_roBERTa %>%
   )
 ggsave(c,
        filename = "RoBERTa-SA-over-time.png",
-       path = here::here("Sentiment Analysis", "visualisations"),
+       path = here::here("outputs"),
        device = "png",
        width = 6, height = 4, units = "in",
        dpi = 600
